@@ -74,7 +74,7 @@ svg {
 .top__text {
     display: flex;
     align-items: center;
-    font-weight: lighter;
+    font-weight: normal;
     gap: 1.5rem;
     margin-right: 0.2rem;
 }
