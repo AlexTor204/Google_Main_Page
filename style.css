@@ -1,19 +1,16 @@
 :root {
     /* hover main */
     --generic-hover: #f0f1f1;
-
     /* Color de fondo pricipal*/
     --main-bg-color: #FFF;
-
     /* Texto general */
     --txt-color: #1f1f1f;
-
     /* Color de los iconoes SVG */
     --svg-color: #444746;
-    
+
     /* Botones */
     --txt-btn-color: #3c4043;
-    --txt-btn-color-hov: #202124;
+
     --bg-bt-color: #f8f9fa;
     --btn-border-color: #dadce0;
 
@@ -21,8 +18,55 @@
     --footer-bg-color: #f2f2f2;
     --footer-dash-color: #dadce0;
 
+    /* Searchbar */
+    --srch-bar-txt-color: #000;
+    --srch-bar-color: #FFF;
+    --srch-bar-border-color: #dfe1e5;
+    --srch-bar-hov-border-color: #FFF;
+    --srch-bar-srch-icon: #9aa0a6;
+    --srch-bar-icons: #474747;
+
     /* Fuente principal */
     --main-font-family: 'Roboto', sans-serif;
+}
+
+/* Modo oscuro */
+@media(prefers-color-scheme:  dark) {
+    :root {
+        /* hover main */
+        --generic-hover: #222429;
+        /* Color de fondo pricipal*/
+        --main-bg-color: #101218;
+        /* Texto general */
+        --txt-color: #fff;
+        /* Color de los iconoes SVG */
+        --svg-color: #eee;
+
+        /* Botones */
+        --txt-btn-color: #FFF;
+
+        --bg-bt-color: #3f4454;
+        --btn-border-color: #5f6368;
+
+        /* Color del footer */
+        --footer-bg-color: #1f2128;
+        --footer-dash-color: #292c32;
+
+        /* Searchbar */
+        --srch-bar-txt-color: #FFF;
+        --srch-bar-color: #3f4454;
+        --srch-bar-border-color: #3f4454;
+        --srch-bar-hov-border-color: #3f4454;
+        --srch-bar-icons: #cdcdcd;
+    }
+    
+    .searchBar:hover {
+        background-color: #4d5160;
+    }
+
+    .googleLogo path {
+        fill: white;
+    }
 }
 
 html {
@@ -38,6 +82,7 @@ html {
 body {
     margin: 0px;
     font-size: 1.4rem;
+    background-color: var(--main-bg-color);
 }
 
 .body__container {
@@ -45,6 +90,7 @@ body {
     flex-flow: column wrap;
     width: 100vw;
     height: 100vh;
+    min-height: 56.8rem;
 }
 
 svg {
@@ -151,10 +197,12 @@ svg {
     border-radius: 5rem;
     max-width: 584px;
     box-shadow: 0px 2px 8px 0px rgba(60, 64, 67, 0.25);
-    border: 1px solid #dfe1e5;
+    border: 1px solid var(--srch-bar-border-color);
+    background-color: var(--srch-bar-color);
+    transition: background-color 0.3s ease;
 }
 .searchBar:hover {
-    border-color: #FFF;
+    border-color: var(--srch-bar-hov-border-color);
 }
 
 #searchBar {
@@ -165,6 +213,7 @@ svg {
     word-wrap: break-word;
     background: none;
     border: none;
+    color: var(--srch-bar-txt-color);
 }
 
 #searchBar:focus {
@@ -189,11 +238,11 @@ svg {
 }
 .searchIcon svg {
     width: 100%;
-    fill: #9aa0a6;
+    fill: var(--srch-bar-srch-icon);
 }
 
 .voiceIcon svg, .lensIcon svg {
-    fill: #474747
+    fill: var(--srch-bar-icons);
 }
 
 .searchIcon, .voiceIcon, .lensIcon {
@@ -214,7 +263,6 @@ svg {
     color: var(--txt-btn-color);
     background-color: var(--bg-bt-color);
     border: 1px solid var(--bg-bt-color);
-
 }
 
 .searchBar__buttons button:hover {
@@ -247,8 +295,7 @@ svg {
     display: flex;
     width: 100%;
     flex-flow: row wrap;
-    padding-left: 4rem;
-    padding-right: 4rem;
+    padding: 0rem 4rem 1.5rem 4rem;
     padding-top: 0;
     justify-content: space-around;
 }
@@ -261,7 +308,6 @@ svg {
     margin-bottom: 1.5rem;
     justify-content: center;
 }
-
 .about__rightside {
     display: flex;
     flex-flow: row wrap;
@@ -269,13 +315,15 @@ svg {
     gap: 2.5rem;
     justify-content: center;
 }
-.footer__about a {
+.footer__about a , .footer__about p {
+    margin: 0;
     color: var(--txt-color);
     text-decoration: none;
 }
 
-.footer__about a:hover {
+.footer__about a:hover, .footer__about p:hover {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 
